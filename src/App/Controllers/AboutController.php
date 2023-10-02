@@ -7,15 +7,17 @@ namespace App\Controllers;
 use Framework\TemplateEngine;
 use App\Config\Paths;
 
-class HomeController
+class AboutController
 {
-
     public function __construct(private TemplateEngine $view)
     {
     }
 
-    public function home()
+    public function about()
     {
-        echo $this->view->render('/index.php');
+        echo $this->view->render('/about.php', [
+            'title' => 'About',
+            'dangerrousData' => '<script>alert(123)</script>'
+        ]);
     }
 }
